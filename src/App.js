@@ -12,7 +12,7 @@ import {Home, Cart,} from "./pages";
 import {setPizzas} from "./redux/actions/pizzas";
 import store from "./redux/store";
 import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
-
+const lsess = null
 // function App() {
 //     const [pizzas, setPizzas] = React.useState([])
 //
