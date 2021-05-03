@@ -1,23 +1,21 @@
-const initalState = {
+const initialState = {
     items: [],
     isLoaded: false
 }
 
-
-const pizzas = (state = initalState, action) => {
-    console.log(state)
+const pizzas = (state = initialState, action) => {
     switch (action.type) {
         case "SET_PIZZAS":
             return{
                 ...state,
                 items: action.payload,
                 isLoaded: action.loadValue
-
             }
 
         default:
             return state
     }
+
 }
 
 export default pizzas

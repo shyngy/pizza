@@ -2,26 +2,8 @@ import React from 'react'
 import pizzaLogo from "../assets/img/pizza.svg";
 import Button from "./Button";
 import {Link} from "react-router-dom";
-import {createStore} from "redux";
-
-function createFunc(state = {value:0,}, action) {
-    switch (action.type) {
-        case 'value+':
-            return {value: state.value +1}
-        case 'value-':
-            return  {value: state.value -1}
-        default:
-            return state
-
-    }
-}
-
-let state = createStore(createFunc)
 
 
-state.subscribe(()=>{
-    console.log(state.getState(), 'HEADER')
-})
 // state.dispatch({type: 'value-'})
 const Header = () => {
 
