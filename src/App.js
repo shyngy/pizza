@@ -12,15 +12,15 @@ import {Home, Cart,} from "./pages";
 import {setPizzas} from "./redux/actions/pizzas";
 
 const App = () =>{
-    window.testFunc = ()=>{
-        axios.get('http://localhost:3000/db.json').then(({data}) => {
-            dispatch(setPizzas(data.pizzas))
-        })
-    }
+    // window.testFunc = ()=>{
+    //     axios.get('http://localhost:3000/db.json').then(({data}) => {
+    //         dispatch(setPizzas(data.pizzas))
+    //     })
+    // }
     const dispatch = useDispatch()
     React.useEffect(()=>{
-        axios.get('http://localhost:3000/db.json').then(({data}) => {
-            dispatch(setPizzas(data.pizzas))
+        axios.get("http://localhost:3005/pizzas?_order=desc&_sort=sizes").then(({data}) => {
+            dispatch(setPizzas(data))
         })
     },[])
 
