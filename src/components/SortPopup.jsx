@@ -1,21 +1,19 @@
 import React from 'react';
 
-const SortPopup = React.memo(({items}) => {
-    // console.log(items)
-    const [visiblePopup, setVisiblePopup] = React.useState(false)
-    const [activeItem, setActivePopup] = React.useState(0)
-    const activeLabel = items[activeItem].name
-    const onSelectItem = (index) =>{
-        setActivePopup(index)
-        setVisiblePopup(false)
-    }
-    const sortRef = React.useRef()
-    // console.log(sortRef.current)
 
+const SortPopup = React.memo(({items, activeSortType, onClickSortType}) => {
+    const [visiblePopup, setVisiblePopup] = React.useState(false)
+    const sortRef = React.useRef()
     // {1} простая функция создается вне, для более оптимизированной работы кода
     const toggleVisblePopup = () => setVisiblePopup(!visiblePopup)
 
-
+    const activeLabel = items.find(e => e.type === activeSortType).name
+    const onSelectItem = (index) => {
+        if (onClickSortType) {
+            onClickSortType(index)
+        }
+        setVisiblePopup(false)
+    }
 
 
     const handleOutsideClick = (e) => {
@@ -23,27 +21,17 @@ const SortPopup = React.memo(({items}) => {
             setVisiblePopup(false)
             console.log('outside')
         }
-        // const sortLabel = document.body.querySelector("div.sort__label")
-        // //console.log(e.path)
-        // if (e.path[1] === sortLabel) {
-        //     console.log('this sort label')
-        // } else {
-        //     setVisiblePopup(false)
-        // }
-
     }
 
     React.useEffect(() => {
-            document.body.addEventListener("click", handleOutsideClick)
-            // console.log(sortRef)
-        }
-        , [])
+        document.body.addEventListener("click", handleOutsideClick)
+    }, [])
 
     return (
         <div ref={sortRef} className="sort">
             <div className="sort__label">
                 <svg
-                    className={visiblePopup ? 'rotated': ''}
+                    className={visiblePopup ? 'rotated' : ''}
                     width="10"
                     height="6"
                     // viewBox = 0 0 10 6
@@ -65,9 +53,9 @@ const SortPopup = React.memo(({items}) => {
                 <ul>
                     {items && items.map((e, index) => {// проверка на undefined, если Items будет пустой, код будет продолжать работать
                             return (
-                                <li onClick={() => onSelectItem(index)}
-                                    key={`${e.type}_${index}`}
-                                    className={activeItem === index ? 'active' : ''}
+                                <li onClick={() => onSelectItem(e)}
+                                    key={`${e.index}_${index}`}
+                                    className={activeSortType === e.type ? 'active' : ''}
                                 >{e.name}</li>
                             )
                         }
@@ -77,5 +65,7 @@ const SortPopup = React.memo(({items}) => {
         </div>
     );
 });
+
+
 
 export default SortPopup;

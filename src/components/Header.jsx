@@ -4,9 +4,8 @@ import Button from "./Button";
 import {Link} from "react-router-dom";
 
 
-// state.dispatch({type: 'value-'})
-const Header = () => {
 
+const Header = () => {
     return (<header className="header">
         <div className="container">
             <Link to="/">
@@ -59,6 +58,7 @@ const Header = () => {
         </div>
     </header>)
 }
+
 
 
 export default Header
