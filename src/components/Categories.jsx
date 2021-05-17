@@ -9,7 +9,7 @@ const Categories = React.memo(({items, onClickCategori, activeCategori}) => {
                 <li className={activeCategori === null ? 'active' : ''}
                     onClick={() => onClickCategori(null)}>Все
                 </li>
-                {items && items.map((e, index) => {// проверка на undefined, если Items будет пустой, код будет продолжать работать
+                {items && items.map((e, index) => {//Aрка на undefined, если Items будет пустой, код будет продолжать работать
                         return (
                             <li onClick={() => onClickCategori(index)}
                                 key={`${e}_${index}`}

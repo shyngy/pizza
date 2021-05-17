@@ -1,17 +1,16 @@
 import classNames from 'classnames'
 import React from 'react'
 
+const Button =  React.memo(function Button({onClick, className, children, outline}) {
 
-function Button({onClick, className, children, outline}) {
-    // console.log(children)
     return (
         <button
-            className={classNames(className, {'button--outline': outline})}
+            className={classNames('button',className, {'button--outline': outline})}
             onClick={onClick}
 
         >{children}</button>
     )
-}
+})
 
 
 
