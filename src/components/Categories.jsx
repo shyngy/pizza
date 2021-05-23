@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 
 
 const Categories = React.memo(({items, onClickCategori, activeCategori}) => {
+    console.log(items);
     return (
         <div className='categories'>
             <ul>
                 <li className={activeCategori === null ? 'active' : ''}
                     onClick={() => onClickCategori(null)}>Все
                 </li>
-                {items && items.map((e, index) => {//Aрка на undefined, если Items будет пустой, код будет продолжать работать
+                {items && items.map((e, index) => {// если Items будет пустой, код будет продолжать работать
                         return (
                             <li onClick={() => onClickCategori(index)}
                                 key={`${e}_${index}`}

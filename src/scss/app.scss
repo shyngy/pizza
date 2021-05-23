@@ -12,22 +12,70 @@ body {
   $container-width: 90%;
 
   $duration: 0.15s;
-  background-color: transparent;
+
   padding: 0;
 }
 
 .wrapper {
-  width: calc(100vw - 100px);
+  width: calc(100vw - 50px);
   height: 100%;
   background-color: #fff;
   margin: 0 auto;
   border-radius: 10px;
   max-width: 1400px;
+
 }
 .content__cart{
   margin-top: -100px ;
 }
 .content {
+  @media screen and (max-width: 500px) {
+    .cart__item{
+      justify-content: space-evenly;
+      
+      &-img{
+        display: none;
+      }
+      &-info{
+        & h3{
+          font-size: 20px;
+          line-height: 19px;
+        }
+        & p {
+          font-size: 15px;
+        }
+      }
+      &-count{
+        width: 29%;
+        justify-content: center;
+        
+      }
+      &-price{
+        justify-content: center;
+        & b{
+          font-size: 18px;
+          margin-top: -2px;
+        }
+      }
+      &-remove{
+        margin-right: 25px;
+        justify-content: flex-start;
+
+      }
+    }
+    .button--circle{
+      width: 23px;
+      height: 23px;
+      min-width: 23px;
+      margin: 0 4px;
+    }
+    .cart__bottom-details{
+      flex-wrap: wrap;
+    }
+    .go-back-btn, .pay-btn{
+      margin: 0px 20px;
+    }
+  }
   padding: 40px 0;
 
 
@@ -45,8 +93,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
   }
-}
+  @media screen and (max-width: 550px) {
+
+      &__top {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        .categories ul li{
+          margin: 5px;
+          padding: 15px 10px;
+          font-size: 14px;
+          border-radius: 40px;
+        }
+      }
+    .sort .sort__label{
+      margin-top: 20px;
+    }
+    .sort .sort__label b{
+      display: none;
+    }
+  }
+  }
 
 .container {
   width: $container-width;
@@ -62,6 +130,7 @@ body {
 }
 
 .cart {
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -98,7 +167,6 @@ body {
       color: #b6b6b6;
       font-size: 18px;
     }
-
     span,
     svg,
     path {
@@ -117,24 +185,27 @@ body {
     }
   }
 
+
   &__item {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid $gray-line;
+  padding-top: 30px;
+  margin-top: 30px;
+
+  &-img {
     display: flex;
-    width: 100%;
-    border-top: 1px solid $gray-line;
-    padding-top: 30px;
-    margin-top: 30px;
+    align-items: center;
+    margin-right: 15px;
+    width: 10%;
 
-    &-img {
-      display: flex;
-      align-items: center;
-      margin-right: 15px;
-      width: 10%;
-
-      img {
-        width: 80px;
-        height: 80px;
-      }
+    img {
+      width: 80px;
+      height: 80px;
     }
+  }
+    
+
 
     &-info {
       display: flex;
@@ -286,7 +357,7 @@ body {
 
   &--empty {
     margin: 0 auto;
-    width: 560px;
+    width: 100%;
     text-align: center;
 
     h2 {
@@ -301,9 +372,9 @@ body {
       color: #777777;
     }
 
-    icon {
+    span {
       position: relative;
-      top: 2px;
+
     }
 
     img {
