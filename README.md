@@ -1,18 +1,18 @@
-#React pizza
+# React pizza #
 
-###[- Автор курса](https://www.youtube.com/watch?v=bziVFvq8cLQ&list=PL0FGkDGJQjJFMRmP7wZ771m1Nx-m2_qXq&ab_channel=ArchakovBlogArchakovBlog "Archakov Blog")
+### [Автор курса](https://www.youtube.com/watch?v=bziVFvq8cLQ&list=PL0FGkDGJQjJFMRmP7wZ771m1Nx-m2_qXq&ab_channel=ArchakovBlogArchakovBlog "Archakov Blog") ###
 
 `yarn install`
-установит все зависимости 
+Установит все зависимости 
 
 `yarn start`
-запустит проект 
+Запустит проект 
 
 `yarn server-json`
-отправит пиццы на _localhost 3009_ с помощью `npx`
+Отправит пиццы на _localhost 3009_ с помощью `npx`
 
 
-- ###Tools:
+- ### Tools: ###
   - **react**, **react-content-loader:** Интерфейс сайта 
   - **redux**, **react-redux:** Управление состоянием
   - **axios:** async - Запросы на сервер возвращает promise
