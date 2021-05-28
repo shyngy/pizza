@@ -35,6 +35,7 @@ const PizzaBlock = ({id, name, imageUrl, price, types, sizes, onClickAddPizza, a
     const onSelectType = (index) => {
         setActiveType(index)
     }
+    const to =()=>{}
 
     const [activeSize, setActiveSize] = React.useState(activeSizeIndex[0])
     const availableSize = [26, 30, 40]
