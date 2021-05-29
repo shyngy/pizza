@@ -1,7 +1,7 @@
 import React from 'react'
-import {Route} from "react-router-dom";
-import {Header} from "./components";
-import {Home, Cart,} from "./pages";
+import { Route } from "react-router-dom";
+import { Header } from "./components";
+import { Home, Cart, } from "./pages";
 import './app.scss'
 
 
@@ -9,11 +9,11 @@ import './app.scss'
 const App = () => {
     return (
         <div className="App">
-            <Header/>
+            <Header />
             <div className="wrapper">
                 <div className="content">
-                    <Route path="/" component={Home} exact/>
-                    <Route path="/cart" component={Cart} exact/>
+                    <Route path="/" component={Home} exact />
+                    <Route path="/cart" component={Cart} exact />
                 </div>
             </div>
         </div>

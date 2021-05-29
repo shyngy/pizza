@@ -6,7 +6,7 @@ const initialState = {
 }
 
 const cart = (state = initialState, action) => {
-
+    
 
     switch (action.type) {
         case "ADD_PIZZA_CART":
@@ -18,12 +18,16 @@ const cart = (state = initialState, action) => {
                     : [...state.items[action.payload.id], action.payload]
             }
 
-            const allPizzas =Object.values(newItems).flat()
-
-            const totalPrice = allPizzas.reduce((sum, obj)  =>  obj.price + sum, 0)
+            const allPizzas = Object.values(newItems).flat()
+            console.log(allPizzas);
+            const alls = allPizzas.map((e)=>{
+                console.log(e);
+            })
+            const totalPrice = allPizzas.reduce((sum, obj) => obj.price + sum, 0)
             return {
                 ...state,
                 items: newItems,
+                allPizzas: allPizzas,
                 totalCount: allPizzas.length,
                 totalPrice,
             }
