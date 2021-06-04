@@ -9,20 +9,26 @@ const cart = (state = initialState, action) => {
     
 
     switch (action.type) {
+        
         case "ADD_PIZZA_CART":
-
+            
+            const items = !state.items[action.payload.id]
+            ? [action.payload]
+            : [...state.items[action.payload.id], action.payload]
+            
+            let newArr = items.forEach((e, index)=>{
+                let counts = 0
+                items[index].count = ++counts
+            })
+            
             const newItems = { //выносим данные для корректной работы метода totalCount
                 ...state.items,
-                [action.payload.id]: !state.items[action.payload.id]
-                    ? [action.payload]
-                    : [...state.items[action.payload.id], action.payload]
+                [action.payload.id]: items,
+                
             }
 
             const allPizzas = Object.values(newItems).flat()
-            console.log(allPizzas);
-            const alls = allPizzas.map((e)=>{
-                console.log(e);
-            })
+           
             const totalPrice = allPizzas.reduce((sum, obj) => obj.price + sum, 0)
             return {
                 ...state,

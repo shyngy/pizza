@@ -3,8 +3,18 @@ import { useSelector } from "react-redux";
 import PizzaItems from "../components/PizzaItems";
 
 const Cart = () => {
-    const { totalPrice, totalCount, allPizzas } = useSelector(({ cart }) => cart)
+  
+    let f 
+    const cart = useSelector(({ cart }) => cart)
+    const { totalPrice, totalCount, allPizzas, items } = cart
+    console.log(cart.items)
+
     
+    console.log(f);
+    const addedPizzas = Object.keys(items).map((key) => {
+      return items[key];
+    })
+    console.log(addedPizzas[0]);
     return (
     <div className="content content__cart">
       <div className="container container--cart">
@@ -85,7 +95,11 @@ const Cart = () => {
           </div>
           <div className="content__items">
             {allPizzas && allPizzas.map((obj, index)=>{
-              console.log(obj);
+              console.log(cart.items);
+              // 
+               
+
+
               return <PizzaItems
                 key={index + obj.name}
                 name={obj.name}
