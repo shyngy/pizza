@@ -13,32 +13,11 @@ const PizzaBlock = ({
   onClickAddPizza,
   addedCount,
 }) => {
-  // console.log(sizes)
-  let pizzaSizeIndex = [];
 
-  let activeSizeIndex = [];
+  console.log(sizes.indexOf(sizes[0]), 'f')
 
-  sizes.forEach((e) => {
-    pizzaSizeIndex.push(e);
-  });
 
-  if (pizzaSizeIndex[0] === 26) {
-    activeSizeIndex[0] = 0;
-  }
-  if (pizzaSizeIndex[0] === 30) {
-    activeSizeIndex[0] = 1;
-  }
-  if (pizzaSizeIndex[1] === 30) {
-    activeSizeIndex[1] = 1;
-  }
-  if (pizzaSizeIndex[1] === 40) {
-    activeSizeIndex[1] = 2;
-  }
-  if (pizzaSizeIndex[2] === 40) {
-    activeSizeIndex[2] = 2;
-  }
 
-  // console.log(activeSizeIndex)
 
   const [activeType, setActiveType] = React.useState(types[0]);
   const availableTypes = ["тонкое", "традиционное"];
@@ -46,7 +25,7 @@ const PizzaBlock = ({
     setActiveType(index);
   };
 
-  const [activeSize, setActiveSize] = React.useState(activeSizeIndex[0]);
+  const [activeSize, setActiveSize] = React.useState(sizes.indexOf(sizes[0]));
   const availableSize = [26, 30, 40];
 
   const onSelesctSize = (index) => {
@@ -90,7 +69,7 @@ const PizzaBlock = ({
           })}
         </ul>
         <ul>
-          {availableSize.map((size, index) => {
+          {sizes.map((size, index) => {
             return (
               <li
                 key={size + index}
