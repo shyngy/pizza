@@ -1,11 +1,11 @@
-import React from 'react'
-import pizzaLogo from '../assets/img/pizza.svg'
-import Button from './Button'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import pizzaLogo from '../assets/img/pizza.svg';
+import Button from './Button';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { totalPrice, totalCount } = useSelector(({ cart }) => cart)
+  const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
 
   return (
     <header className="header">
@@ -59,7 +59,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

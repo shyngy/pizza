@@ -11,6 +11,7 @@
 
   &__image {
     width: 260px;
+    height: 260px;
   }
 
   &__title {
@@ -48,10 +49,9 @@
           border-radius: 5px;
           cursor: auto;
         }
-        &.disabled{
-          opacity: .5;
+        &.disabled {
+          opacity: 0.5;
           pointer-events: none;
-
         }
       }
     }

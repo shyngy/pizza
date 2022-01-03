@@ -1,5 +1,5 @@
-import React from 'react'
-import ContentLoader from 'react-content-loader'
+import React from 'react';
+import ContentLoader from 'react-content-loader';
 
 const LoadingBlock = () => {
   return (
@@ -19,7 +19,7 @@ const LoadingBlock = () => {
       <rect x="2" y="421" rx="6" ry="6" width="100" height="30" />
       <rect x="126" y="414" rx="18" ry="18" width="148" height="44" />
     </ContentLoader>
-  )
-}
+  );
+};
 
-export default LoadingBlock
+export default LoadingBlock;

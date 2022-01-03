@@ -1,34 +1,33 @@
-import React from 'react'
+import React from 'react';
 
 const SortPopup = React.memo(({ items, activeSortType, onClickSortType }) => {
-  const [visiblePopup, setVisiblePopup] = React.useState(false)
-  const sortRef = React.useRef()
+  const [visiblePopup, setVisiblePopup] = React.useState(false);
+  const sortRef = React.useRef();
   // {1} простая функция создается вне, для более оптимизированной работы кода
-  const toggleVisblePopup = () => setVisiblePopup(!visiblePopup)
+  const toggleVisiblePopup = () => setVisiblePopup(!visiblePopup);
 
-  const activeLabel = items.find((e) => e.type === activeSortType).name
+  const activeLabel = items.find((e) => e.type === activeSortType).name;
   const onSelectItem = (index) => {
     if (onClickSortType) {
-      onClickSortType(index)
+      onClickSortType(index);
     }
-    setVisiblePopup(false)
-  }
+    setVisiblePopup(false);
+  };
 
   const handleOutsideClick = (event) => {
-    const path = event.path || (event.composedPath && event.composedPath())
-    // console.log(e.path)
+    const path = event.path || (event.composedPath && event.composedPath());
+
     if (!path.includes(sortRef.current)) {
-      setVisiblePopup(false)
-      console.log('outside')
+      setVisiblePopup(false);
     }
-  }
+  };
 
   React.useEffect(() => {
-    document.body.addEventListener('click', handleOutsideClick)
+    document.body.addEventListener('click', handleOutsideClick);
     return () => {
-      document.body.removeEventListener('click', handleOutsideClick)
-    }
-  }, [])
+      document.body.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div ref={sortRef} className="sort">
@@ -49,7 +48,7 @@ const SortPopup = React.memo(({ items, activeSortType, onClickSortType }) => {
         </svg>
         <b>Сортировка по:</b>
         {/* {1} создание анонимной функции тут приводит к повторному выполнению функции несколько раз во время рендера */}
-        <span onClick={toggleVisblePopup}>{activeLabel}</span>
+        <span onClick={toggleVisiblePopup}>{activeLabel}</span>
       </div>
 
       {visiblePopup && (
@@ -68,13 +67,13 @@ const SortPopup = React.memo(({ items, activeSortType, onClickSortType }) => {
                   >
                     {e.name}
                   </li>
-                )
+                );
               })}
           </ul>
         </div>
       )}
     </div>
-  )
-})
+  );
+});
 
-export default SortPopup
+export default SortPopup;

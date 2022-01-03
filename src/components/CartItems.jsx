@@ -1,5 +1,5 @@
-import React from 'react'
-import { Button } from './index'
+import React from 'react';
+import { Button } from './index';
 
 const CartItem = ({
   id,
@@ -14,16 +14,16 @@ const CartItem = ({
   onMinus,
 }) => {
   const handleRemove = () => {
-    onRemove(id)
-  }
+    onRemove(id);
+  };
 
   const handlePlusItem = () => {
-    onPlus(id)
-  }
+    onPlus(id);
+  };
 
   const handleMinusItem = () => {
-    onMinus(id)
-  }
+    onMinus(id);
+  };
   return (
     <div className="cart__item">
       <div className="cart__item-img">
@@ -102,7 +102,7 @@ const CartItem = ({
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CartItem
+export default CartItem;

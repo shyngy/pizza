@@ -1,14 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Categories = React.memo(({ items, onClickCategori, activeCategori }) => {
-  console.log(items)
+const Categories = React.memo(({ items, onClickCategory, activeCategory }) => {
   return (
     <div className="categories">
       <ul>
         <li
-          className={activeCategori === null ? 'active' : ''}
-          onClick={() => onClickCategori(null)}
+          className={activeCategory === null ? 'active' : ''}
+          onClick={() => onClickCategory(null)}
         >
           Все
         </li>
@@ -17,27 +16,27 @@ const Categories = React.memo(({ items, onClickCategori, activeCategori }) => {
             // если Items будет пустой, код будет продолжать работать
             return (
               <li
-                onClick={() => onClickCategori(index)}
+                onClick={() => onClickCategory(index)}
                 key={`${e}_${index}`}
-                className={activeCategori === index ? 'active' : ''}
+                className={activeCategory === index ? 'active' : ''}
               >
                 {e}
               </li>
-            )
+            );
           })}
       </ul>
     </div>
-  )
-})
+  );
+});
 
 Categories.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onClickCategori: PropTypes.func.isRequired,
-  // activeCategori: oneOfType([PropTypes.number, null])
-}
+  onClickCategory: PropTypes.func.isRequired,
+  // activeCategory: oneOfType([PropTypes.number, null])
+};
 Categories.defaultProps = {
   items: [],
-  // activeCategori: null,
-}
+  // activeCategory: null,
+};
 
-export default Categories
+export default Categories;

@@ -1,5 +1,5 @@
-import classNames from 'classnames'
-import React from 'react'
+import classNames from 'classnames';
+import React from 'react';
 
 const Button = React.memo(function Button({
   onClick,
@@ -16,7 +16,7 @@ const Button = React.memo(function Button({
     >
       {children}
     </button>
-  )
-})
+  );
+});
 
-export default Button
+export default Button;

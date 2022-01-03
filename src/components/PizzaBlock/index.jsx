@@ -1,7 +1,7 @@
-import React from 'react'
-import classNames from 'classnames'
-import PropTypes from 'prop-types'
-import { Button } from '../index'
+import React from 'react';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import { Button } from '../index';
 
 const PizzaBlock = ({
   id,
@@ -13,47 +13,17 @@ const PizzaBlock = ({
   onClickAddPizza,
   addedCount,
 }) => {
-  // console.log(sizes)
-  let pizzaSizeIndex = []
-
-  let activeSizeIndex = []
-
-  sizes.forEach((e) => {
-    pizzaSizeIndex.push(e)
-  })
-
-  if (pizzaSizeIndex[0] === 26) {
-    activeSizeIndex[0] = 0
-  }
-  if (pizzaSizeIndex[0] === 30) {
-    activeSizeIndex[0] = 1
-  }
-  if (pizzaSizeIndex[1] === 30) {
-    activeSizeIndex[1] = 1
-  }
-  if (pizzaSizeIndex[1] === 40) {
-    activeSizeIndex[1] = 2
-  }
-  if (pizzaSizeIndex[2] === 40) {
-    activeSizeIndex[2] = 2
-  }
-
-  // console.log(activeSizeIndex)
-
-  const [activeType, setActiveType] = React.useState(types[0])
-  const availableTypes = ['тонкое', 'традиционное']
+  const [activeType, setActiveType] = React.useState(types[0]);
+  const availableTypes = ['тонкое', 'традиционное'];
   const onSelectType = (index) => {
-    setActiveType(index)
-  }
+    setActiveType(index);
+  };
 
-  const [activeSize, setActiveSize] = React.useState(activeSizeIndex[0])
-  const availableSize = [26, 30, 40]
-
-  const onSelesctSize = (index) => {
-    setActiveSize(index)
-  }
-
-  // console.log(availableSize[1])
+  const [activeSize, setActiveSize] = React.useState(sizes[0]);
+  const availableSize = [26, 30, 40];
+  const onSelectSize = (index) => {
+    setActiveSize(index);
+  };
 
   const onAddPizza = () => {
     const obj = {
@@ -61,11 +31,12 @@ const PizzaBlock = ({
       name,
       imageUrl,
       price,
+      uniqueId: name + availableSize[activeSize] + availableTypes[activeType],
       size: availableSize[activeSize],
       type: availableTypes[activeType],
-    }
-    onClickAddPizza(obj)
-  }
+    };
+    onClickAddPizza(obj);
+  };
 
   return (
     <div className="pizza-block">
@@ -74,7 +45,6 @@ const PizzaBlock = ({
       <div className="pizza-block__selector">
         <ul>
           {availableTypes.map((type, index) => {
-            //console.log(type, index + " type")
             return (
               <li
                 onClick={() => onSelectType(index)}
@@ -86,7 +56,7 @@ const PizzaBlock = ({
               >
                 {type}
               </li>
-            )
+            );
           })}
         </ul>
         <ul>
@@ -94,15 +64,15 @@ const PizzaBlock = ({
             return (
               <li
                 key={size + index}
-                onClick={() => onSelesctSize(index)}
+                onClick={() => onSelectSize(index)}
                 className={classNames({
                   active: activeSize === index,
-                  disabled: !sizes.includes(size),
+                  disabled: !sizes.includes(index),
                 })}
               >
-                {size} см.
+                {availableSize[index]} см.
               </li>
-            )
+            );
           })}
         </ul>
       </div>
@@ -126,8 +96,8 @@ const PizzaBlock = ({
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 PizzaBlock.propTypes = {
   name: PropTypes.string,
@@ -137,7 +107,7 @@ PizzaBlock.propTypes = {
   sizes: PropTypes.arrayOf(PropTypes.number),
   onClickAddPizza: PropTypes.func,
   addedCount: PropTypes.number,
-}
+};
 
 PizzaBlock.defaultProps = {
   name: '---',
@@ -145,6 +115,6 @@ PizzaBlock.defaultProps = {
   price: 0,
   sizes: [],
   types: [],
-}
+};
 
-export default PizzaBlock
+export default PizzaBlock;
